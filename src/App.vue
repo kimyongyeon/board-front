@@ -1,6 +1,14 @@
 <template>
 <div>
-  <b-table striped hover :items="items"></b-table>
+  <div class="app">
+    <b-table striped hover :items="items"></b-table>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
+  </div>
 </div>
 </template>
 
@@ -13,10 +21,10 @@ export default {
   data() {
       return {
         items: [
-          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { age: 38, first_name: 'Jami', last_name: 'Carney' }
+          { 일련번호: 40, 제목: 'Dickerson', 등록일: 'Macdonald' },
+          { 일련번호: 21, 제목: 'Larsen', 등록일: 'Shaw' },
+          { 일련번호: 89, 제목: 'Geneva', 등록일: 'Wilson' },
+          { 일련번호: 38, 제목: 'Jami', 등록일: 'Carney' }
         ]
       }
     }
@@ -24,12 +32,9 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  min-width:500px;
+  margin: 60px auto;
+  border: 1px solid red;
 }
 </style>
