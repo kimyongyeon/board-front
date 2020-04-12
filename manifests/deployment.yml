@@ -4,7 +4,7 @@ metadata:
   name: "board"
 spec:
   selector:
-    matchLabels:
+    labels:
       app: boardfront
   replicas: 2
   template:
