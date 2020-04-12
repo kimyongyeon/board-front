@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "board"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "board"
+    spec:
+      containers:
+        - name: "board"
+          image: "boardfront.azurecr.io/board"
+          ports:
+          - containerPort: 80
