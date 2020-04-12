@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: "board"
 spec:
+  selector:
+    matchLabels:
+      app: boardfront
   replicas: 2
   template:
     metadata:
