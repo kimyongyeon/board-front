@@ -17,3 +17,35 @@ spec:
           image: "boardfront.azurecr.io/board"
           ports:
           - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: "board"
+    labels:
+        app: "board"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+    selector:
+        app: "board"
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: board
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+  - host: board-front.<CLUSTER_SPECIFIC_DNS_ZONE>
+    http:
+      paths:
+      - backend:
+          serviceName: board
+          servicePort: 80
+        path: /
