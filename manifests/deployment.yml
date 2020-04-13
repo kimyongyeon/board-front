@@ -42,7 +42,7 @@ metadata:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: board-front.<CLUSTER_SPECIFIC_DNS_ZONE>
+  - host: boardfront.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
       paths:
       - backend:
