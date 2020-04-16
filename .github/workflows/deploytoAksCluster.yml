@@ -27,8 +27,8 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        npm install
-        npm run build
+        yarn install
+        yarn run build
         docker build . -t boardfront.azurecr.io/board:${{ github.sha }}
         docker push boardfront.azurecr.io/board:${{ github.sha }}
     
